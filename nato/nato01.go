@@ -19,12 +19,14 @@ func main() {
     text := scanner.Text()
 
     for _, c := range text {
-        c = unicode.ToLower(c)
-        idx := int(c - 'a')
-        if idx < len(nato) && idx >= 0 {
-            fmt.Println(nato[idx])
+        if unicode.IsLetter(c) {
+            c = unicode.ToLower(c)
+            idx := int(c - 'a')
+            if idx < len(nato) && idx >= 0 {
+                fmt.Print(nato[idx])
+            }
         } else {
-            fmt.Println("")
+            fmt.Printf("%c", c)
         }
     }
 }
